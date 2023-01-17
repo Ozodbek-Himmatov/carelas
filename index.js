@@ -1,43 +1,48 @@
+// All imports
 import express from "express";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import { create } from "express-handlebars";
+import mongoose from "mongoose";
+import flash from "connect-flash";
+import session from "express-session";
+import varMiddleware from "./middleware/var.js";
+import cookieParser from "cookie-parser";
+import * as dotenv from "dotenv";
 
-const __fileName = fileURLToPath(import.meta.url);
-const __dirname = dirname(__fileName);
-const PORT = 3000;
+// Routes
+import AuthRoutes from "./routes/auth.js";
+import ActionsRoutes from "./routes/actions.js";
+
+dotenv.config();
+// const variables
 const app = express();
+const hbs = create({ defaultLayout: "main", extname: "hbs" });
+// body
+app.engine("hbs", hbs.engine);
+app.set("view engine", "hbs");
+app.set("views", "./views");
 
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "index.html"));
-});
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(session({ secret: "Taqvo", resave: false, saveUninitialized: false }));
+app.use(flash());
+app.use( varMiddleware );
 
-app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "about.html"));
-});
+app.use(AuthRoutes);
+app.use(ActionsRoutes);
 
-app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+const startApp = () => {
+    try {
+        mongoose.set("strictQuery", false);
+        mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }, () =>
+            console.log("Mongo DB is connected")
+        );
 
-// const http = require("http");
-// // const fs = require("fs");
-// // const { fileReader } = require("./helper/fileReader.js");
-// const pug = require("pug");
-
-// http.createServer((req, res) => {
-//     if (req.method == "GET") {
-//         console.log(req.url);
-//         if (req.url == "/") {
-//             const compiledFunction = pug.compileFile("./views/index.pug");
-//             res.end(
-//                 compiledFunction({
-//                     name: "OzodJS",
-//                 })
-//             );
-//         }
-//     }
-// }).listen(PORT, (err) => {
-//     if (err) {
-//         console.log(err.name);
-//     } else {
-//         console.log(`Server working on ${PORT}`);
-//     }
-// });
+        const PORT = 3000;
+        app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
+    } catch (error) {
+        console.log(error);
+    }
+};
+startApp();

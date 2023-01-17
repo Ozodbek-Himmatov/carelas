@@ -1,0 +1,116 @@
+<form action="signup" method="post">
+    <section class="h-50">
+        <div class="h-100 mt-5 text-secondary">
+            <div class="container h-100">
+                <div
+                    class="row d-flex justify-content-center align-items-center h-100"
+                >
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6 w-0">
+                        <div
+                            class="card border-warning"
+                            style="border-radius: 50px;"
+                        >
+                            <div
+                                class="card-body p-5 bg-black text-center rounded"
+                            >
+                                <h2
+                                    class="text-uppercase text-center text-warning"
+                                    style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight:bold;"
+                                >Register</h2>
+                                <p
+                                    class="text-white-50 mb-5 align-center"
+                                >Please fill all the fields</p>
+
+                                {{#if signupError}}
+                                    <p>{{signupError}}</p>
+                                {{/if}}
+                                <form>
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            name="fullName"
+                                            class="form-control form-control-lg mb-4"
+                                            id="floatingPassword"
+                                            placeholder="Full Name"
+                                        />
+                                        <label
+                                            class="form-label"
+                                            for="floatingPassword"
+                                        >Full Name</label>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            class="form-control form-control-lg"
+                                            id="floatingInput"
+                                            placeholder="name@example.com"
+                                        />
+                                        <label
+                                            for="floatingInput"
+                                            name="email"
+                                            class="form-label"
+                                        >Email address</label>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            class="form-control form-control-lg mb-4"
+                                            id="floatingPassword"
+                                            placeholder="Password"
+                                        />
+                                        <label
+                                            class="form-label"
+                                            for="floatingPassword"
+                                        >Password</label>
+                                    </div>
+
+                                    <div
+                                        class="form-check d-flex justify-content-center mb-5"
+                                    >
+                                        <input
+                                            class="form-check-input me-2"
+                                            type="checkbox"
+                                            value=""
+                                            id="form2Example3cg"
+                                        />
+                                        <label
+                                            class="form-check-label"
+                                            for="form2Example3g"
+                                        >
+                                            I agree all statements in
+                                            <a
+                                                href="/terms-of-service"
+                                                class="text-body"
+                                            ><u class="text-secondary">Terms of
+                                                    service</u></a>
+                                        </label>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-light btn-block btn-lg mb-4"
+                                        >Sign up</button>
+                                    </div>
+
+                                    <p
+                                        class="text-center text-muted mt-5 mb-0 "
+                                    >Have already an account?
+                                        <a
+                                            href="/login"
+                                            class="fw-bold text-body"
+                                        ><u class="text-secondary">Login here</u></a></p>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

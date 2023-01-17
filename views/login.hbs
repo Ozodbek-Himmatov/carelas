@@ -1,0 +1,111 @@
+<form action="/login" method="post">
+    <section class="vh-75 gradient-custom">
+        <div class="container py-5 h-50">
+            <div
+                class="row d-flex justify-content-center align-items-center h-100"
+            >
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6 w-0">
+                    <div
+                        class="card bg-warning text-secondary"
+                        style="border-radius: 50px;"
+                    >
+                        <div class="card-body p-5 text-center rounded bg-black">
+
+                            <div class="mb-md-5 mt-md-4 pb-5">
+
+                                <h2
+                                    class="fw-bold mb-2 text-uppercase text-warning"
+                                >Login</h2>
+                                <p class="text-white-50 mb-5">Please enter your
+                                    login and password!</p>
+
+                                {{#if loginError}}
+                                    <div
+                                        class="alert alert-danger alert-dismissible fade show text-start"
+                                        role="alert"
+                                    >
+                                        <strong>ERROR!</strong>
+                                        {{loginError}}
+                                        <button
+                                            type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="alert"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                {{/if}}
+                                <div class="form-floating mb-4">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        class="form-control form-control-lg"
+                                        id="floatingInput"
+                                        placeholder="name@example.com"
+                                    />
+                                    <label for="floatingInput">Email address</label>
+                                    <div class="form-notch"><div
+                                            class="form-notch-leading"
+                                            style="width: 9px;"
+                                        ></div><div
+                                            class="form-notch-middle"
+                                            style="width: 40px;"
+                                        ></div><div
+                                            class="form-notch-trailing"
+                                        ></div></div>
+                                </div>
+                                <div class="form-floating">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        class="form-control form-control-lg mb-4"
+                                        id="floatingPassword"
+                                        placeholder="Password"
+                                    />
+                                    <label
+                                        class="form-label"
+                                        for="floatingPassword"
+                                    >Password</label>
+                                </div>
+
+                                <p class="small mb-5 pb-lg-2"><a
+                                        class="text-white-50"
+                                        href="#!"
+                                    >Forgot password?</a></p>
+
+                                <button
+                                    class="btn btn-outline-light btn-lg px-5"
+                                    type="submit"
+                                >Login</button>
+
+                                <div
+                                    class="d-flex justify-content-center text-center mt-2 pt-1"
+                                >
+                                    <a href="#!" class="text-white"><i
+                                            class="fab fa-facebook-f fa-lg"
+                                        ></i></a>
+                                    <a href="#!" class="text-white"><i
+                                            class="fab fa-twitter fa-lg mx-4 px-2"
+                                        ></i></a>
+                                    <a href="#!" class="text-white"><i
+                                            class="fab fa-google fa-lg"
+                                        ></i></a>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <p class="mb-0">Don't have an account?
+                                    <a
+                                        href="/signup"
+                                        class="text-white-50 fw-bold"
+                                    >Sign Up</a>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
