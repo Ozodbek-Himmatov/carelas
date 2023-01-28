@@ -16,7 +16,6 @@ router.get("/login", (req, res) => {
     });
 });
 
-
 router.get("/signup", (req, res) => {
     if (req.cookies.token) {
         res.redirect("/");
@@ -32,7 +31,7 @@ router.get("/signup", (req, res) => {
 router.get("/logout", (req, res) => {
     res.clearCookie("token");
     res.redirect("/");
-} );
+});
 
 router.post("/login", async (req, res) => {
     const { email, password } = req.body;

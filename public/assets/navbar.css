@@ -1,0 +1,46 @@
+* {
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: #1b4e81;
+    /* #3c9dff5b */
+    box-sizing: border-box;
+    z-index: 10001;
+}
+
+.navbar button {
+    font-weight: bold;
+}
+.navbar .hover {
+    transition: 0.3s;
+    border-radius: 0 !important;
+    border-bottom: 3px solid white;
+}
+.navbar .hover a {
+    padding: 0 20px !important;
+}
+.navbar .hover:hover {
+    background: rgb(255, 0, 0);
+    border-radius: 20px 20px !important;
+    background: linear-gradient(
+        204deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(27, 78, 129, 1) 35%,
+        rgba(27, 78, 129, 1) 65%,
+        rgba(0, 255, 252, 1) 90%
+    );
+    border-bottom: 3px solid white;
+}
+.navbar .hover.active {
+    background: rgb(255, 0, 0);
+    border-radius: 20px 20px !important;
+    background: linear-gradient(
+        204deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(27, 78, 129, 1) 35%,
+        rgba(27, 78, 129, 1) 65%,
+        rgba(0, 255, 252, 1) 90%
+    );
+    border-bottom: 3px solid white;
+}

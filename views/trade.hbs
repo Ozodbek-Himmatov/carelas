@@ -1,1 +1,124 @@
-<h1>Sold Out! ;)</h1>
+<div class="container">
+    <div class="title mb-3">
+        <div class="border-bottom text-center" style="font-size: 47px;"><i
+            >Carelas</i>
+            - Above and Beyond!
+        </div>
+        <div  class="container p-4 d-flex gap-3">
+            <button
+            class="d-flex justify-content-center btn btn-outline-success mt-2 rounded text-center p-1"
+            style="font-size: 27px; font-weight: 200; "
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            >➕🚙</button>
+            <button
+            class="d-flex justify-content-center btn btn-outline-success mt-2 rounded text-center p-1"
+            style="font-size: 27px; font-weight: 200; "
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            >➕🚙</button>
+        </div>
+        <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1
+                            class="modal-title fs-5"
+                            id="staticBackdropLabel"
+                        >ADD CAR</h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/add" method="POST">
+                            <div class="form-floating mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingPassword"
+                                    placeholder="Image"
+                                    name="image"
+                                />
+                                <label for="floatingPassword">Image</label><input type="file" id="img" name="img" accept="image/*">
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingPassword"
+                                    placeholder="Model"
+                                    name="model"
+                                />
+                                <label for="floatingPassword">Model</label>
+                            </div>
+                            <div class="form-floating">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingPassword"
+                                    placeholder="Description"
+                                    name="description"
+                                />
+                                <label
+                                    for="floatingPassword"
+                                >Description</label>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >Close</button>
+                        <button
+                            type="reset"
+                            class="btn btn-danger"
+                        >Clear</button>
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >Done</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {{#each cars}}
+            <div class="container col mb-5">
+                <div class="card1">
+                    <div class="imgBx">
+                        <img src="{{image}}" alt="carImage">
+                    </div>
+                    <div class="contentBx">
+                        <h3 class="card-text">{{description}}</h3>
+                        <small class="text-muted">{{model}}</small>
+                        <small class="color text-muted">{{user.fullName}}</small>
+                        <a href="#" class="mt-4">Buy Now</a>
+                        <div class="date d-flex {{#isEqual user._id @root.currentUser._id}} justify-content-between" {{/isEqual}}style="width: 317px;">
+                                <small class="text-muted ">added {{formatDate createdAt}}</small>
+                                {{#isEqual user._id @root.currentUser._id}}
+                                    <form action="/delete/{{_id}}" method="POST">
+                                        <button type="submit" class="delete btn btn-danger">🗑</button>
+                                    </form>
+                                {{/isEqual}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+</div>

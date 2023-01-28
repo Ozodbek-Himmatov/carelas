@@ -1,15 +1,13 @@
 <html lang="en">
     {{!-- HEADER --}}
 {{>header}}
-    <body class="bg-dark text-primary">
+    <body class="text-primary">
+        {{!-- Background Image  --}}
+        <img src="img/background.png" class="myBg" >
         {{!-- NAVBAR --}}
         {{>navbar}}
         {{!-- BODY --}}
-        <img src="img/background.png" class="myBg" style="position: absolute; height: 100%; width: 100%">
-
-        <div class="container">
-            {{{body}}}
-        </div>
+        {{{body}}}
         {{!-- FOOTER --}}
         {{> footer}}
     </body>

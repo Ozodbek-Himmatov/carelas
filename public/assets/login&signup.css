@@ -1,0 +1,8 @@
+.login .card-body {
+    background-image: url("/img/login.png");
+    background-size: cover;
+    background-position: bottom;
+}
+.login .card {
+    background-color: #ffc1077c;
+}
