@@ -6,6 +6,7 @@ import Car from "../models/Car.js";
 router.get("/", AuthMiddleware, (req, res) => {
     res.render("index", {
         title: "Carelas - Trade on Top",
+        isHomeActive: true,
     });
 });
 

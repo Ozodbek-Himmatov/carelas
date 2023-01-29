@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 import * as dotenv from "dotenv";
 import moment from "moment";
 
-// MIDDLEWARES
+// MIDDLEWARE
 import varMiddleware from "./middleware/var.js";
 import AuthMiddleware from "./middleware/auth.js";
 import UserMiddleware from "./middleware/user.js";
