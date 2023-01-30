@@ -105,10 +105,10 @@
                     </div>
                     <div class="contentBx">
                         <h3 class="card-text">{{description}}</h3>
-                        <small class="text-muted">{{model}}</small>
-                        <small class="color text-muted">{{user.fullName}}</small>
-                        <a href="#" class="mt-4">Buy Now</a>
-                        <div class="date d-flex {{#isEqual user._id @root.currentUser._id}} justify-content-between" {{/isEqual}}style="width: 317px;">
+                        <small class="size">{{model}}</small>
+                        <small class="color ">{{user.fullName}}</small>
+                        <a href="#" class="buy mt-4">Buy Now</a>
+                        <div class="date d-flex {{#isEqual user._id @root.currentUser._id}} justify-content-between" {{/isEqual}}style="width: 300px;">
                                 <small class="text-muted ">added {{formatDate createdAt}}</small>
                                 {{#isEqual user._id @root.currentUser._id}}
                                     <form action="/delete/{{_id}}" method="POST">
