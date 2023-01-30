@@ -62,5 +62,5 @@ router.post("/delete/:id", async (req, res) => {
     let car = await Car.findByIdAndDelete(req.params.id);
     res.redirect("/trade");
 });
-
+    
 export default router;

@@ -96,7 +96,7 @@
             </div>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         {{#each cars}}
             <div class="container col mb-5">
                 <div class="card1">
@@ -109,10 +109,10 @@
                         <small class="color ">{{user.fullName}}</small>
                         <a href="#" class="buy mt-4">Buy Now</a>
                         <div class="date d-flex {{#isEqual user._id @root.currentUser._id}} justify-content-between" {{/isEqual}}style="width: 300px;">
-                                <small class="text-muted ">added {{formatDate createdAt}}</small>
+                                <small class="text-muted ">{{formatDate createdAt}}</small>
                                 {{#isEqual user._id @root.currentUser._id}}
                                     <form action="/delete/{{_id}}" method="POST">
-                                        <button type="submit" class="delete btn btn-danger">🗑</button>
+                                        <button type="submit" class="delete">🗑</button>
                                     </form>
                                 {{/isEqual}}
                         </div>
